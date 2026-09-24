@@ -1,0 +1,13 @@
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/MotorflowApplication.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/config/SecurityConfig.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/controller/AuthController.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/controller/DashboardController.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/controller/WorkOrderController.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/domain/OrderStatus.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/domain/Part.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/domain/Role.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/domain/User.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/domain/WorkOrder.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/repository/PartRepository.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/repository/UserRepository.java
+/home/carolgomez/Actividad-Taller/backend/src/main/java/com/taller/gestion/repository/WorkOrderRepository.java

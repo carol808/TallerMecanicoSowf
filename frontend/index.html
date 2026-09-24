@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotorFlow | Gestión de taller</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <section v-if="!authenticated" class="login-screen">
+        <div class="login-art"><a class="brand" href="#"><span class="brand-mark"><i class="bi bi-wrench-adjustable"></i></span><span>Motor<span>Flow</span></span></a><div class="login-copy"><span class="welcome-mark"><i class="bi bi-car-front-fill"></i></span><h1>El control total de tu taller.</h1><p>Gestiona reparaciones, clientes, inventario y ganancias desde un solo lugar.</p><div class="login-feature"><i class="bi bi-check-circle-fill"></i> Órdenes de trabajo en tiempo real</div><div class="login-feature"><i class="bi bi-check-circle-fill"></i> Equipo, inventario y cotizaciones</div></div><small>© 2026 MotorFlow · Gestión inteligente para talleres</small></div>
+        <div class="login-form-wrap"><div class="login-card"><p class="eyebrow mb-2">ACCESO SEGURO</p><h2>{{ showRegister ? 'Crea tu cuenta' : 'Bienvenido de nuevo' }}</h2><p class="login-sub">{{ showRegister ? 'Registra un usuario para comenzar.' : 'Ingresa tus datos para continuar al taller.' }}</p><div v-if="loginError" class="alert alert-danger py-2 small">{{ loginError }}</div><form v-if="!showRegister" @submit.prevent="login"><label>Correo electrónico</label><input v-model="loginForm.email" class="form-control mb-3" type="email" placeholder="nombre@taller.com" required><label>Contraseña</label><input v-model="loginForm.password" class="form-control mb-2" type="password" placeholder="••••••••••••" required><div class="d-flex justify-content-end mb-4"><a href="#" @click.prevent="loginError='Solicita la recuperación a tu administrador o conecta el servicio de correo.'" class="small text-decoration-none">¿Olvidaste tu contraseña?</a></div><button class="btn btn-primary w-100 py-2" :disabled="loading">{{ loading ? 'Verificando…' : 'Iniciar sesión' }} <i class="bi bi-arrow-right ms-1"></i></button></form><form v-else @submit.prevent="register"><label>Nombre completo</label><input v-model="registerForm.name" class="form-control mb-3" placeholder="Tu nombre" required><label>Correo electrónico</label><input v-model="registerForm.email" class="form-control mb-3" type="email" placeholder="nombre@taller.com" required><label>Contraseña</label><input v-model="registerForm.password" class="form-control mb-3" type="password" minlength="12" placeholder="Mínimo 12 caracteres" required><label>Rol</label><select v-model="registerForm.role" class="form-select mb-4"><option>ADMINISTRADOR</option><option>SECRETARIA</option><option>MECANICO</option><option>CLIENTE</option></select><button class="btn btn-primary w-100 py-2" :disabled="loading">{{ loading ? 'Creando…' : 'Crear cuenta' }}</button></form><p class="text-center small mt-4 mb-0">{{ showRegister ? '¿Ya tienes cuenta?' : '¿Primera vez en MotorFlow?' }} <a href="#" @click.prevent="showRegister=!showRegister">{{ showRegister ? 'Inicia sesión' : 'Crear usuario' }}</a></p></div></div>
+      </section>
+      <div v-else>
+      <aside class="sidebar d-flex flex-column">
+        <a class="brand" href="#"><span class="brand-mark"><i class="bi bi-wrench-adjustable"></i></span><span>Motor<span>Flow</span></span></a>
+        <div class="workshop-label">TALLER MECÁNICO</div>
+        <nav class="nav flex-column mt-3 gap-1">
+          <a v-for="item in menu" :key="item.name" href="#" @click.prevent="active = item.name" :class="['nav-link', {active: active === item.name}]"><i :class="item.icon"></i>{{ item.name }}<span v-if="item.badge" class="badge rounded-pill">{{item.badge}}</span></a>
+        </nav>
+        <div class="mt-auto user-card">
+          <div class="avatar">AM</div><div><strong>Ana Martínez</strong><small>Administradora</small></div><i class="bi bi-three-dots-vertical ms-auto"></i>
+      </div>
+      </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div><p class="eyebrow mb-1">Lunes, 22 de septiembre de 2026</p><h1>¡Buenos días, Ana! <span>👋</span></h1></div>
+          <div class="d-flex align-items-center gap-3"><button class="icon-btn position-relative"><i class="bi bi-bell"></i><span class="notification-dot"></span></button><button class="btn btn-primary rounded-3 px-3" @click="showReception = true"><i class="bi bi-plus-lg me-2"></i>Registrar vehículo</button></div>
+        </header>
+
+        <section v-if="active === 'Inicio'" class="dashboard">
+          <div class="metrics-grid">
+            <article class="metric-card"><div class="metric-icon bg-blue-light"><i class="bi bi-car-front-fill"></i></div><div><p>Vehículos hoy</p><h2>18 <small>+12%</small></h2><span>7 pendientes de atender</span></div></article>
+            <article class="metric-card"><div class="metric-icon bg-green-light"><i class="bi bi-check2-circle"></i></div><div><p>Atendidos hoy</p><h2>11 <small>61%</small></h2><span>Meta diaria: 15 vehículos</span></div></article>
+            <article class="metric-card"><div class="metric-icon bg-orange-light"><i class="bi bi-tools"></i></div><div><p>En reparación</p><h2>9</h2><span>3 listos para entregar</span></div></article>
+            <article class="metric-card"><div class="metric-icon bg-violet-light"><i class="bi bi-cash-stack"></i></div><div><p>Ganancia del día</p><h2>$12,480</h2><span class="income-up"><i class="bi bi-arrow-up"></i> 8.4% vs. ayer</span></div></article>
+          </div>
+
+          <div class="content-grid mt-4">
+            <section class="panel agenda-panel"><div class="panel-header"><div><h3>Agenda de hoy</h3><p>Seguimiento de vehículos en el taller</p></div><button class="btn-link" @click="active='Órdenes de trabajo'">Ver todas <i class="bi bi-arrow-right"></i></button></div>
+              <div class="table-responsive"><table class="table align-middle"><thead><tr><th>HORA</th><th>CLIENTE / VEHÍCULO</th><th>SERVICIO</th><th>MECÁNICO</th><th>ESTADO</th></tr></thead><tbody><tr v-for="order in orders" :key="order.folio"><td class="time-cell">{{order.time}}</td><td><div class="d-flex align-items-center gap-2"><span class="car-avatar" :class="order.color"><i class="bi bi-car-front"></i></span><div><strong>{{order.client}}</strong><small>{{order.car}} · {{order.plate}}</small></div></div></td><td>{{order.service}}</td><td><span class="mechanic"><span class="mini-avatar">{{order.initials}}</span>{{order.mechanic}}</span></td><td><span :class="['status', order.statusClass]">{{order.status}}</span></td></tr></tbody></table></div>
+            </section>
+            <section class="panel tasks-panel"><div class="panel-header"><div><h3>Mi equipo hoy</h3><p>Asignación de personal</p></div><button class="icon-btn small"><i class="bi bi-sliders"></i></button></div>
+              <div v-for="person in team" :key="person.name" class="team-row"><span class="profile" :class="person.color">{{person.initials}}</span><div class="flex-grow-1"><strong>{{person.name}}</strong><small>{{person.task}}</small></div><span :class="['availability', person.available ? 'available':'busy']">{{person.available ? 'Disponible' : 'Ocupado'}}</span></div>
+              <button class="outline-action w-100 mt-3">Ver agenda del equipo</button>
+            </section>
+          </div>
+
+          <div class="content-grid bottom-grid mt-4">
+            <section class="panel chart-panel"><div class="panel-header"><div><h3>Ganancias</h3><p>Resumen de ingresos del taller</p></div><div class="segmented"><button v-for="period in ['Semanal','Quincenal','Mensual']" :class="{selected: gainPeriod === period}" @click="gainPeriod=period">{{period}}</button></div></div>
+              <div class="chart-total"><h2>{{ gainValue }}</h2><span class="income-up"><i class="bi bi-arrow-up"></i> 14.2% <em>vs. periodo anterior</em></span></div>
+              <div class="bar-chart"><div v-for="bar in bars" :key="bar.day" class="bar-col"><div class="bar-value" :style="{height: bar.value + '%'}"></div><span>{{bar.day}}</span></div></div>
+            </section>
+            <section class="panel inventory-panel"><div class="panel-header"><div><h3>Stock de piezas</h3><p>Alertas de inventario</p></div><button class="btn-link" @click="active='Inventario'">Ver inventario</button></div><div v-for="part in parts" :key="part.name" class="part-row"><span class="part-icon"><i :class="part.icon"></i></span><div class="flex-grow-1"><strong>{{part.name}}</strong><small>{{part.code}}</small></div><div class="text-end"><strong :class="part.low ? 'text-danger' : ''">{{part.qty}} {{part.unit}}</strong><small :class="part.low ? 'stock-low':''">{{part.low ? 'Stock bajo' : 'Disponible'}}</small></div></div></section>
+          </div>
+        </section>
+
+        <section v-else class="panel placeholder-panel"><div class="empty-icon"><i :class="menu.find(x=>x.name===active)?.icon"></i></div><h2>{{active}}</h2><p>Este módulo se conecta a los servicios REST de Spring Boot. Desde aquí podrás administrar la información correspondiente.</p><button class="btn btn-primary" @click="active='Inicio'">Volver al panel</button></section>
+      </main>
+
+      <div v-if="showReception" class="modal-backdrop-custom" @click.self="showReception=false"><div class="modal-card"><div class="d-flex justify-content-between align-items-center mb-4"><div><p class="eyebrow mb-1">NUEVA ORDEN</p><h3 class="mb-0">Recepción de vehículo</h3></div><button class="icon-btn" @click="showReception=false"><i class="bi bi-x-lg"></i></button></div><form @submit.prevent="showReception=false"><div class="row g-3"><div class="col-6"><label>Cliente</label><input class="form-control" placeholder="Nombre completo" required></div><div class="col-6"><label>Teléfono</label><input class="form-control" placeholder="55 0000 0000" required></div><div class="col-7"><label>Vehículo</label><input class="form-control" placeholder="Marca y modelo" required></div><div class="col-5"><label>Placas</label><input class="form-control" placeholder="ABC-123" required></div><div class="col-12"><label>Problema reportado</label><textarea class="form-control" rows="3" placeholder="Describe el motivo de la visita"></textarea></div><div class="col-12"><label>Condiciones externas iniciales</label><textarea class="form-control" rows="2" placeholder="Rayones, golpes, accesorios, nivel de combustible…"></textarea></div></div><div class="d-flex justify-content-end gap-2 mt-4"><button type="button" class="btn btn-light" @click="showReception=false">Cancelar</button><button class="btn btn-primary">Crear orden</button></div></form></div></div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
