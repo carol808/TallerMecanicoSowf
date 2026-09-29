@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "9134a827-fee0-43ce-bd8d-1feb658eac2d",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/carolgomez/Actividad-Taller/.archify/architecture-registro-cliente-20260928-183700/candidate.json",
+  "output": "/home/carolgomez/Actividad-Taller/.archify/architecture-registro-cliente-20260928-183700/registro-cliente.html",
+  "specification": {
+    "sha256": "76c3beb7285647b861d5bccfec37a542aa238d236ae1ec3b972957189a04016d",
+    "bytes": 4746
+  },
+  "artifact": {
+    "sha256": "882395e6ffc9b15c9d727011a270bdcf6e18c869e3018d41d1fe410ff2649aab",
+    "bytes": 762894
+  }
+}

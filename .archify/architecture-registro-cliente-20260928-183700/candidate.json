@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Registro de clientes — Fase 2",
+    "subtitle": "Componentes y controles del flujo autorizado",
+    "output": ".archify/architecture-registro-cliente-20260928-183700/registro-cliente.html",
+    "quality_profile": "showcase",
+    "repository": { "url": "https://github.com/carol808/TallerMecanicoSowf.git", "provider": "github", "link_mode": "web", "revision": "fc3cfa9d25756cd3b3b9ac991bab8af51fbf7904" }
+  },
+  "components": [
+    { "id": "authorized-user", "type": "external", "label": "Administrador o recepcionista", "sublabel": "Sesión autenticada", "pos": [40, 290], "size": [220, 70], "sources": [{ "path": "backend/src/main/java/com/taller/gestion/config/SecurityConfig.java", "line": 22, "end_line": 24, "label": "Roles permitidos" }] },
+    { "id": "client-view", "type": "frontend", "label": "Vista Vue: Clientes", "sublabel": "Formulario y notificación", "pos": [350, 290], "size": [160, 70], "sources": [{ "path": "frontend/index.html", "line": 4, "label": "Formulario Clientes" }, { "path": "frontend/app.js", "line": 15, "end_line": 17, "label": "Guardar y toast" }] },
+    { "id": "client-ui-facade", "type": "frontend", "label": "ClientFacade", "sublabel": "Rol, tipo y 15 MB", "pos": [630, 290], "size": [160, 70], "sources": [{ "path": "frontend/facades/client-facade.js", "line": 2, "end_line": 10, "label": "Validación UI" }] },
+    { "id": "client-rest-repository", "type": "frontend", "label": "ClientRepository", "sublabel": "Multipart REST", "pos": [870, 290], "size": [160, 70], "sources": [{ "path": "frontend/repositories/client-repository.js", "line": 2, "end_line": 9, "label": "POST multipart" }] },
+    { "id": "client-controller", "type": "backend", "label": "ClientController", "sublabel": "POST /api/clients", "pos": [1110, 290], "size": [160, 70], "sources": [{ "path": "backend/src/main/java/com/taller/gestion/controller/ClientController.java", "line": 10, "end_line": 21, "label": "Adaptador REST" }] },
+    { "id": "client-backend-facade", "type": "backend", "label": "ClientFacade", "sublabel": "Validación y reglas", "pos": [1390, 290], "size": [160, 70], "sources": [{ "path": "backend/src/main/java/com/taller/gestion/facade/ClientFacade.java", "line": 14, "end_line": 46, "label": "Caso de uso" }] },
+    { "id": "client-jpa-repository", "type": "backend", "label": "ClientRepository", "sublabel": "JPA y duplicados", "pos": [1390, 470], "size": [160, 70], "sources": [{ "path": "backend/src/main/java/com/taller/gestion/repository/ClientRepository.java", "line": 7, "end_line": 14, "label": "Consultas únicas" }] },
+    { "id": "mysql", "type": "database", "label": "MySQL", "sublabel": "clients + fotografía BLOB", "pos": [1390, 650], "size": [160, 70], "sources": [{ "path": "backend/src/main/java/com/taller/gestion/domain/Client.java", "line": 7, "end_line": 26, "label": "Entidad Client" }] }
+  ],
+  "boundaries": [
+    { "kind": "security-group", "label": "Spring Security: ADMINISTRADOR, SECRETARIA o RECEPCIONISTA", "wraps": ["client-controller", "client-backend-facade", "client-jpa-repository"], "pad": 36 }
+  ],
+  "connections": [
+    { "id": "opens-form", "from": "authorized-user", "to": "client-view", "label": "captura datos", "variant": "emphasis" },
+    { "id": "ui-validation", "from": "client-view", "to": "client-ui-facade", "label": "guardar cliente" },
+    { "id": "multipart-request", "from": "client-ui-facade", "to": "client-rest-repository", "label": "datos + foto" },
+    { "id": "rest-post", "from": "client-rest-repository", "to": "client-controller", "label": "POST multipart", "variant": "emphasis" },
+    { "id": "use-case", "from": "client-controller", "to": "client-backend-facade", "label": "delegar registro" },
+    { "id": "duplicate-check-save", "from": "client-backend-facade", "to": "client-jpa-repository", "label": "validar y guardar", "fromSide": "bottom", "toSide": "top" },
+    { "id": "persist-client", "from": "client-jpa-repository", "to": "mysql", "label": "JPA / SQL", "fromSide": "bottom", "toSide": "top" }
+  ],
+  "cards": [
+    { "dot": "rose", "title": "Control de acceso", "items": ["El backend rechaza usuarios sin rol permitido antes de llegar al controlador.", "La fachada Vue oculta y bloquea la acción para roles no autorizados."] },
+    { "dot": "emerald", "title": "Integridad", "items": ["Correo y teléfonos se buscan en ambos campos personales/laborales antes de crear.", "La foto exige JPG, PNG o WEBP, límite de 15 MB y firma binaria válida."] },
+    { "dot": "cyan", "title": "Respuesta", "items": ["MySQL guarda cliente, dirección y fotografía.", "La API devuelve Cliente guardado y Vue muestra la notificación al éxito."] }
+  ]
+}

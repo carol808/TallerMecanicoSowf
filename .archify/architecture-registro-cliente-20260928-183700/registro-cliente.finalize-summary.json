@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "skipped",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/carolgomez/Actividad-Taller/.archify/architecture-registro-cliente-20260928-183700/candidate.json",
+    "sha256": "76c3beb7285647b861d5bccfec37a542aa238d236ae1ec3b972957189a04016d",
+    "bytes": 4746
+  },
+  "artifact": {
+    "path": "/home/carolgomez/Actividad-Taller/.archify/architecture-registro-cliente-20260928-183700/registro-cliente.html",
+    "sha256": "882395e6ffc9b15c9d727011a270bdcf6e18c869e3018d41d1fe410ff2649aab",
+    "bytes": 762894
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "skipped"
+  },
+  "failedStage": "browser-check",
+  "diagnostics": [
+    {
+      "code": "viewer/chrome-unavailable",
+      "severity": "warning",
+      "message": "Chrome or Chromium is unavailable. Set ARCHIFY_CHROME to its executable path.",
+      "subject": {
+        "artifact": "/home/carolgomez/Actividad-Taller/.archify/architecture-registro-cliente-20260928-183700/registro-cliente.html"
+      },
+      "evidence": {
+        "executable": null
+      },
+      "supportedFixes": [
+        "set ARCHIFY_CHROME to a Chrome or Chromium executable and rerun browser-check"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/carolgomez/Actividad-Taller/.archify/architecture-registro-cliente-20260928-183700/registro-cliente.finalize.json",
+    "summaryReceipt": "/home/carolgomez/Actividad-Taller/.archify/architecture-registro-cliente-20260928-183700/registro-cliente.finalize-summary.json",
+    "browserCheckReceipt": "/home/carolgomez/Actividad-Taller/.archify/architecture-registro-cliente-20260928-183700/registro-cliente.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.0.1",
+    "releaseNotes": null,
+    "checkedAt": "2026-09-29T00:38:13.633Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 1195
+}
