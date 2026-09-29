@@ -1,3 +1,28 @@
 package com.taller.gestion.controller;
-import com.taller.gestion.domain.*; import com.taller.gestion.repository.UserRepository; import jakarta.validation.Valid; import jakarta.validation.constraints.*; import org.springframework.http.*; import org.springframework.security.crypto.password.PasswordEncoder; import org.springframework.web.bind.annotation.*; import java.security.SecureRandom; import java.time.*; import java.util.*;
-@RestController @RequestMapping("/api/auth") @CrossOrigin(origins="*") public class AuthController { private final UserRepository users; private final PasswordEncoder passwords; public AuthController(UserRepository users,PasswordEncoder passwords){this.users=users;this.passwords=passwords;} @PostMapping("/register") public ResponseEntity<?> register(@Valid @RequestBody Registration r){if(users.findByEmail(r.email()).isPresent())return ResponseEntity.status(409).body(Map.of("message","El correo ya está registrado"));User u=new User();u.setName(r.name());u.setEmail(r.email().toLowerCase());u.setPasswordHash(passwords.encode(r.password()));u.setRoles(Set.of(r.role()==null?Role.CLIENTE:r.role()));users.save(u);return ResponseEntity.status(201).body(Map.of("message","Usuario creado"));} @PostMapping("/recovery") public Map<String,String> requestRecovery(@Valid @RequestBody RecoveryRequest r){users.findByEmail(r.email().toLowerCase()).ifPresent(u->{String token=randomToken();u.setRecoveryToken(passwords.encode(token));u.setRecoveryExpiresAt(LocalDateTime.now().plusMinutes(15));users.save(u);/* Enviar token mediante correo, nunca exponerlo en la respuesta. */});return Map.of("message","Si el correo existe, recibirás instrucciones para recuperar la cuenta.");} @PostMapping("/reset-password") public ResponseEntity<?> resetPassword(@Valid @RequestBody ResetPassword r){return users.findAll().stream().filter(u->u.getRecoveryToken()!=null&&u.getRecoveryExpiresAt()!=null&&u.getRecoveryExpiresAt().isAfter(LocalDateTime.now())&&passwords.matches(r.token(),u.getRecoveryToken())).findFirst().map(u->{u.setPasswordHash(passwords.encode(r.newPassword()));u.setRecoveryToken(null);u.setRecoveryExpiresAt(null);users.save(u);return ResponseEntity.ok(Map.of("message","Contraseña actualizada"));}).orElseGet(()->ResponseEntity.badRequest().body(Map.of("message","Token inválido o vencido")));} private String randomToken(){byte[] bytes=new byte[32];new SecureRandom().nextBytes(bytes);return Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);} public record Registration(@NotBlank String name,@Email String email,@Size(min=12,max=72) String password,Role role){} public record RecoveryRequest(@Email String email){} public record ResetPassword(@NotBlank String token,@Size(min=12,max=72) String newPassword){} }
+
+import com.taller.gestion.domain.Role;
+import com.taller.gestion.facade.AuthFacade;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+import java.util.Map;
+
+/** Adaptador REST de autenticación; delega persistencia y reglas de identidad a AuthFacade. */
+@RestController @RequestMapping("/api/auth") @CrossOrigin(origins="*")
+public class AuthController {
+  private final AuthFacade auth;
+  public AuthController(AuthFacade auth) { this.auth = auth; }
+  /** Alta inicial de usuario. */
+  @PostMapping("/register") public ResponseEntity<?> register(@Valid @RequestBody Registration r) { return auth.register(r.name(), r.email(), r.password(), r.role()); }
+  /** Solicita recuperación sin revelar si el correo existe. */
+  @PostMapping("/recovery") public Map<String, String> requestRecovery(@Valid @RequestBody RecoveryRequest r) { auth.requestRecovery(r.email()); return Map.of("message", "Si el correo existe, recibirás instrucciones para recuperar la cuenta."); }
+  /** Restablece contraseña con token no vencido. */
+  @PostMapping("/reset-password") public ResponseEntity<?> resetPassword(@Valid @RequestBody ResetPassword r) { return auth.resetPassword(r.token(), r.newPassword()) ? ResponseEntity.ok(Map.of("message", "Contraseña actualizada")) : ResponseEntity.badRequest().body(Map.of("message", "Token inválido o vencido")); }
+  /** Devuelve usuario y roles de la sesión Basic para que Vue aplique el control de la vista. */
+  @GetMapping("/me") public Map<String, Object> me(Authentication authentication) { return Map.of("email", authentication.getName(), "roles", authentication.getAuthorities().stream().map(x -> x.getAuthority().replace("ROLE_", "")).toList()); }
+  public record Registration(@NotBlank String name, @Email String email, @Size(min=12,max=72) String password, Role role) {}
+  public record RecoveryRequest(@Email String email) {}
+  public record ResetPassword(@NotBlank String token, @Size(min=12,max=72) String newPassword) {}
+}

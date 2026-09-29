@@ -16,3 +16,8 @@ spring:
         format_sql: true
 server:
   port: ${PORT:8082}
+  servlet:
+    context-path: /
+spring.servlet.multipart:
+  max-file-size: 15MB
+  max-request-size: 15MB
