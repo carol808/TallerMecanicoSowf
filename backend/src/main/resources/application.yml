@@ -5,8 +5,10 @@ spring:
     # MySQL expuesto por Docker en el equipo anfitrión: ajusta puerto, usuario y contraseña con variables de entorno.
     # El contenedor mysql-spring expone springdb por localhost:3307.
     url: ${DB_URL:jdbc:mysql://localhost:3307/springdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Mexico_City}
-    username: ${DB_USER:root}
-    password: ${DB_PASSWORD:root}
+    # La cuenta de MySQL se inyecta desde el entorno; nunca se usa root/root como
+    # valor por defecto porque el contenedor no autoriza root desde el host.
+    username: ${DB_USER:spring}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update

@@ -16,11 +16,18 @@ public class Client {
   @Column(unique = true, length = 20) private String workPhone;
   @Column(nullable = false, unique = true, length = 160) private String email;
   @Column(unique = true, length = 160) private String workEmail;
-  @Lob @Basic(fetch = FetchType.LAZY) @Column(nullable = false) private byte[] photo;
+  /** MEDIUMBLOB admite fotografías de hasta 16 MB; el caso de uso limita el archivo a 15 MB. */
+  @Lob @Basic(fetch = FetchType.LAZY) @Column(nullable = false, columnDefinition = "MEDIUMBLOB") private byte[] photo;
   @Column(nullable = false, length = 40) private String photoContentType;
   @Embedded private Address address;
   /** Reservado para fase de sucursales; no se recibe ni se asigna en esta fase. */
   private Long workshopId;
+  @Column(length = 80) private String firstName;
+  @Column(length = 80) private String paternalLastName;
+  @Column(length = 80) private String maternalLastName;
+  @Column(unique = true, length = 18) private String curp;
+  @Column(length = 13) private String rfc;
+  @Enumerated(EnumType.STRING) @Column(nullable = false, length = 16) private ClientStatus status = ClientStatus.ACTIVO;
 
   public Long getId() { return id; }
   public String getFullName() { return fullName; }
@@ -45,4 +52,18 @@ public class Client {
   public void setPhotoContentType(String v) { photoContentType = v; }
   public Address getAddress() { return address; }
   public void setAddress(Address v) { address = v; }
+  public Long getWorkshopId() { return workshopId; }
+  public void setWorkshopId(Long v) { workshopId = v; }
+  public String getFirstName() { return firstName; }
+  public void setFirstName(String v) { firstName = v; }
+  public String getPaternalLastName() { return paternalLastName; }
+  public void setPaternalLastName(String v) { paternalLastName = v; }
+  public String getMaternalLastName() { return maternalLastName; }
+  public void setMaternalLastName(String v) { maternalLastName = v; }
+  public String getCurp() { return curp; }
+  public void setCurp(String v) { curp = v; }
+  public String getRfc() { return rfc; }
+  public void setRfc(String v) { rfc = v; }
+  public ClientStatus getStatus() { return status; }
+  public void setStatus(ClientStatus v) { status = v; }
 }

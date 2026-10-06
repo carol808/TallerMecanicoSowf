@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "skipped",
+  "type": "workflow",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/carolgomez/Actividad-Taller/.archify/workflow-registro-clientes-20261006-205000/candidate.json",
+    "sha256": "0cc4fa593780dc448dcc2348952b2bb3d2caca541d1927b662b4948b66f726ac",
+    "bytes": 4389
+  },
+  "artifact": {
+    "path": "/home/carolgomez/Actividad-Taller/.archify/workflow-registro-clientes-20261006-205000/diagrama_proceso_clientes.html",
+    "sha256": "ddef27ab5746170c17ce99603383cafc9ddaddd20451cf3bdecea319dcd996ba",
+    "bytes": 767758
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "skipped"
+  },
+  "failedStage": "browser-check",
+  "diagnostics": [
+    {
+      "code": "viewer/chrome-unavailable",
+      "severity": "warning",
+      "message": "Chrome or Chromium is unavailable. Set ARCHIFY_CHROME to its executable path.",
+      "subject": {
+        "artifact": "/home/carolgomez/Actividad-Taller/.archify/workflow-registro-clientes-20261006-205000/diagrama_proceso_clientes.html"
+      },
+      "evidence": {
+        "executable": null
+      },
+      "supportedFixes": [
+        "set ARCHIFY_CHROME to a Chrome or Chromium executable and rerun browser-check"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/carolgomez/Actividad-Taller/.archify/workflow-registro-clientes-20261006-205000/diagrama_proceso_clientes.finalize.json",
+    "summaryReceipt": "/home/carolgomez/Actividad-Taller/.archify/workflow-registro-clientes-20261006-205000/diagrama_proceso_clientes.finalize-summary.json",
+    "browserCheckReceipt": "/home/carolgomez/Actividad-Taller/.archify/workflow-registro-clientes-20261006-205000/diagrama_proceso_clientes.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.0.1",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-06T15:14:59.314Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 1353
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "ea94fba5-9373-4f24-ba73-82824724f46d",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "/home/carolgomez/Actividad-Taller/.archify/workflow-registro-clientes-20261006-205000/candidate.json",
+  "output": "/home/carolgomez/Actividad-Taller/.archify/workflow-registro-clientes-20261006-205000/diagrama_proceso_clientes.html",
+  "specification": {
+    "sha256": "0cc4fa593780dc448dcc2348952b2bb3d2caca541d1927b662b4948b66f726ac",
+    "bytes": 4389
+  },
+  "artifact": {
+    "sha256": "ddef27ab5746170c17ce99603383cafc9ddaddd20451cf3bdecea319dcd996ba",
+    "bytes": 767758
+  }
+}

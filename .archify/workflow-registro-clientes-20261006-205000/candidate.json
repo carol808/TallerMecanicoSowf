@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Proceso de administración de clientes",
+    "subtitle": "MotorFlow · autenticación, autorización y operación por taller",
+    "output": ".archify/workflow-registro-clientes-20261006-205000/diagrama_proceso_clientes.html",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {"id":"usuario","label":"Usuario autenticado"},
+    {"id":"aplicacion","label":"Vue + Facades"},
+    {"id":"seguridad","label":"Seguridad y reglas","variant":"exception"},
+    {"id":"api","label":"Spring Boot, MySQL y catálogo postal"}
+  ],
+  "phases": [
+    {"id":"acceso","label":"Acceso", "fromCol":0,"toCol":1,"variant":"emphasis"},
+    {"id":"registro","label":"Registro", "fromCol":2,"toCol":3,"variant":"default"},
+    {"id":"administracion","label":"Administración", "fromCol":4,"toCol":5,"variant":"dashed"}
+  ],
+  "mainPath": ["login","dashboard","formulario","validacion","guardar","mysql","consulta"],
+  "nodes": [
+    {"id":"login","lane":"usuario","col":0,"type":"external","label":"Login","sublabel":"correo + contraseña","width":122},
+    {"id":"recuperacion","lane":"usuario","col":1,"type":"external","label":"Recuperación","sublabel":"respuesta no reveladora","width":122},
+    {"id":"dashboard","lane":"aplicacion","col":1,"type":"frontend","label":"Panel","sublabel":"registro y consulta","width":122},
+    {"id":"taller","lane":"aplicacion","col":2,"type":"frontend","label":"Taller","sublabel":"alta: administrador","width":122},
+    {"id":"formulario","lane":"aplicacion","col":3,"type":"frontend","label":"Cliente","sublabel":"datos, foto y dirección","width":132},
+    {"id":"catalogo","lane":"api","col":3,"type":"database","label":"Código postal","sublabel":"CP ⇄ dirección","width":132},
+    {"id":"validacion","lane":"seguridad","col":4,"type":"security","label":"Validar permiso","sublabel":"rol, formato y duplicado","tag":"admin / secretaria","width":138},
+    {"id":"guardar","lane":"api","col":4,"type":"backend","label":"API REST","sublabel":"Facade → Repository","width":122},
+    {"id":"mysql","lane":"api","col":5,"type":"database","label":"MySQL","sublabel":"clientes por taller","width":122},
+    {"id":"consulta","lane":"aplicacion","col":5,"type":"frontend","label":"Clientes","sublabel":"página, edición y orden","width":132},
+    {"id":"transferir","lane":"usuario","col":5,"type":"external","label":"Cambio / suspensión","sublabel":"suspender: administrador","width":138},
+    {"id":"rechazo","lane":"seguridad","col":5,"type":"security","label":"Rechazar","sublabel":"403, duplicado o inválido","width":132}
+  ],
+  "edges": [
+    {"id":"login-dashboard","from":"login","to":"dashboard","label":"Basic Auth","variant":"emphasis","role":"main"},
+    {"id":"login-recovery","from":"login","to":"recuperacion","label":"olvidó contraseña","variant":"dashed","role":"branch"},
+    {"id":"dashboard-taller","from":"dashboard","to":"taller","label":"administrador","variant":"default"},
+    {"id":"dashboard-form","from":"dashboard","to":"formulario","label":"admin o secretaria","variant":"emphasis","role":"main"},
+    {"id":"form-catalog","from":"formulario","to":"catalogo","label":"consulta automática","variant":"dashed"},
+    {"id":"form-validation","from":"formulario","to":"validacion","label":"multipart REST","variant":"emphasis","role":"main"},
+    {"id":"validation-api","from":"validacion","to":"guardar","label":"permitido","variant":"emphasis","role":"main"},
+    {"id":"validation-reject","from":"validacion","to":"rechazo","label":"sin permiso o inválido","variant":"security","role":"error"},
+    {"id":"api-mysql","from":"guardar","to":"mysql","label":"persistir","variant":"default","role":"main"},
+    {"id":"mysql-consulta","from":"mysql","to":"consulta","label":"página de 10","variant":"emphasis","role":"return"},
+    {"id":"consulta-actions","from":"consulta","to":"transferir","label":"editar / transferir / suspender","variant":"default"}
+  ],
+  "cards": [
+    {"dot":"cyan","title":"Permisos","items":["Administrador: talleres, clientes, transferencia y suspensión.","Secretaria: clientes, edición y transferencia; sin alta de taller ni suspensión."]},
+    {"dot":"rose","title":"Controles","items":["Contraseñas BCrypt y recuperación con token temporal.","Foto JPG/PNG/WEBP hasta 15 MB; validaciones también en backend."]}
+  ]
+}
