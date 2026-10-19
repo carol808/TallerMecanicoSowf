@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-preset="classic">
+<html lang="en" data-theme="dark" data-preset="blueprint">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 3.0.1">
   <meta name="archify-reader-contract" content="declared-wide-v1">
-  <title>Proceso de administración de clientes Diagram</title>
+  <title>Administración de Clientes Diagram</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -4978,9 +4978,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
            data-preset-badge-blueprint="BLUEPRINT / REV 01"
            data-preset-badge-editorial="EDITORIAL / FIELD NOTE">
         <div class="pulse-dot"></div>
-        <h1>Proceso de administración de clientes</h1>
+        <h1>Administración de Clientes</h1>
       </div>
-      <p class="subtitle">MotorFlow · autenticación, autorización y operación por taller</p>
+      <p class="subtitle">MotorFlow · Vue, servicios REST Spring Boot y MySQL</p>
     </div>
 
 
@@ -4988,9 +4988,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / PLATE 04">
-      <svg viewBox="0 0 1205 660" data-layout-contract="readable-v2" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase">
-        <title id="archify-diagram-title">Proceso de administración de clientes</title>
-        <desc id="archify-diagram-description">MotorFlow · autenticación, autorización y operación por taller</desc>
+      <svg viewBox="0 0 1033 918" data-layout-contract="readable-v2" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="blueprint" data-quality-profile="standard">
+        <title id="archify-diagram-title">Administración de Clientes</title>
+        <desc id="archify-diagram-description">MotorFlow · Vue, servicios REST Spring Boot y MySQL</desc>
         <!-- Definitions -->
         <defs>
           <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -5014,267 +5014,246 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <rect width="100%" height="100%" fill="url(#grid)" />
 
         <!-- Swimlanes -->
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-0" x="40" y="52" width="1099" height="106" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="74" class="t-dim" font-size="10" font-weight="600">01 / Usuario autenticado</text>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-0" x="40" y="52" width="965" height="106" rx="10" class="c-lane" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="exception-lane" data-composition-frame-id="lane-0-exception" x="46" y="58" width="953" height="94" rx="8" class="c-security-group" stroke-width="1"/>
+        <text x="54" y="74" class="t-security" font-size="10" font-weight="600">EX / Acceso y autorización</text>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-1" x="40" y="178" width="1099" height="106" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="200" class="t-dim" font-size="10" font-weight="600">02 / Vue + Facades</text>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-1" x="40" y="178" width="965" height="106" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="200" class="t-dim" font-size="10" font-weight="600">02 / Frontend Vue · captura</text>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-2" x="40" y="304" width="1099" height="106" rx="10" class="c-lane" stroke-width="1"/>
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="exception-lane" data-composition-frame-id="lane-2-exception" x="46" y="310" width="1087" height="94" rx="8" class="c-security-group" stroke-width="1"/>
-        <text x="54" y="326" class="t-security" font-size="10" font-weight="600">EX / Seguridad y reglas</text>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-2" x="40" y="304" width="965" height="112" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="326" class="t-dim" font-size="10" font-weight="600">03 / Frontend Vue · administración</text>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-3" x="40" y="430" width="1099" height="106" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="452" class="t-dim" font-size="10" font-weight="600">04 / Spring Boot, MySQL y catálogo postal</text>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-3" x="40" y="436" width="965" height="106" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="458" class="t-dim" font-size="10" font-weight="600">04 / Backend Spring Boot · REST</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-4" x="40" y="562" width="965" height="106" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="584" class="t-dim" font-size="10" font-weight="600">05 / Servicios de catálogo</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-5" x="40" y="688" width="965" height="106" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="710" class="t-dim" font-size="10" font-weight="600">06 / MySQL local</text>
 
         <!-- Phase headers -->
-        <line x1="63" y1="35" x2="376.6" y2="35" class="a-emphasis" stroke-width="1.1"/>
-        <rect x="63" y="27" width="313.6" height="16" rx="4" class="c-mask"/>
-        <text x="219.8" y="39" class="t-backend" font-size="8" font-weight="600" text-anchor="middle">Acceso</text>
-        <line x1="487" y1="35" x2="714" y2="35" class="a-default" stroke-width="1.1"/>
-        <rect x="487" y="27" width="227" height="16" rx="4" class="c-mask"/>
-        <text x="600.5" y="39" class="t-muted" font-size="8" font-weight="600" text-anchor="middle">Registro</text>
-        <line x1="757" y1="35" x2="1107.6" y2="35" class="a-dashed" stroke-width="1.1"/>
-        <rect x="757" y="27" width="350.5999999999999" height="16" rx="4" class="c-mask"/>
-        <text x="932.3" y="39" class="t-messagebus" font-size="8" font-weight="600" text-anchor="middle">Administración</text>
+        <line x1="58" y1="35" x2="336.2" y2="35" class="a-security" stroke-width="1.1"/>
+        <rect x="58" y="27" width="278.2" height="16" rx="4" class="c-mask"/>
+        <text x="197.1" y="39" class="t-security" font-size="8" font-weight="600" text-anchor="middle">Acceso</text>
+        <line x1="364.19999999999993" y1="35" x2="674.3999999999999" y2="35" class="a-emphasis" stroke-width="1.1"/>
+        <rect x="364.19999999999993" y="27" width="310.2" height="16" rx="4" class="c-mask"/>
+        <text x="519.3" y="39" class="t-backend" font-size="8" font-weight="600" text-anchor="middle">Captura y validación</text>
+        <line x1="735.4" y1="35" x2="872.1999999999999" y2="35" class="a-default" stroke-width="1.1"/>
+        <rect x="735.4" y="27" width="136.79999999999998" height="16" rx="4" class="c-mask"/>
+        <text x="803.8" y="39" class="t-muted" font-size="8" font-weight="600" text-anchor="middle">Persistencia y consulta</text>
 
         <!-- Workflow groups -->
-
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="group" data-composition-frame-id="group-0" x="338.2" y="216" width="359.2" height="64" rx="9" class="c-lane" stroke-width="1"/>
+        <text x="348.2" y="214" class="t-messagebus" font-size="7" font-weight="600">Dirección sincronizada</text>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="group" data-composition-frame-id="group-1" x="213.7" y="342" width="644.2" height="70" rx="9" class="c-lane" stroke-width="1"/>
+        <text x="223.7" y="340" class="t-backend" font-size="7" font-weight="600">Administración y acciones</text>
 
         <!-- Edge paths -->
-        <path data-edge-from="guardar" data-edge-to="mysql" data-edge-label="persistir" data-edge-key="0" data-edge-id="api-mysql" data-composition-routing="workflow-v2-auto" data-edge-role="main" data-composition-points="864,498;1000.5999999999999,498" d="M 864 498 L 1000.5999999999999 498" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="consulta" data-edge-to="transferir" data-edge-label="editar / transferir / suspender" data-edge-key="1" data-edge-id="consulta-actions" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="1061.6,220;1061.6,146" d="M 1061.6 220 L 1061.6 146" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="dashboard" data-edge-to="formulario" data-edge-label="admin o secretaria" data-edge-key="2" data-edge-id="dashboard-form" data-composition-routing="workflow-v2-auto" data-edge-role="main" data-composition-points="330.6,220;330.6,204;668,204;668,220" d="M 330.6 220 L 330.6 204 L 668 204 L 668 220" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path data-edge-from="dashboard" data-edge-to="taller" data-edge-label="administrador" data-edge-key="3" data-edge-id="dashboard-taller" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="391.6,246;472,246" d="M 391.6 246 L 472 246" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="formulario" data-edge-to="catalogo" data-edge-label="consulta automática" data-edge-key="4" data-edge-id="form-catalog" data-composition-routing="workflow-v2-auto" data-edge-role="" data-composition-points="668,272;668,357;586,357;586,498;602,498" d="M 668 272 L 668 357 L 586 357 L 586 498 L 602 498" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
-        <path data-edge-from="formulario" data-edge-to="validacion" data-edge-label="multipart REST" data-edge-key="5" data-edge-id="form-validation" data-composition-routing="workflow-v2-auto" data-edge-role="main" data-composition-points="680,272;680,294;803,294;803,338" d="M 680 272 L 680 294 L 803 294 L 803 338" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path data-edge-from="login" data-edge-to="dashboard" data-edge-label="Basic Auth" data-edge-key="6" data-edge-id="login-dashboard" data-composition-routing="workflow-v2-auto" data-edge-role="main" data-composition-points="109,146;109,168;306.6,168;306.6,220" d="M 109 146 L 109 168 L 306.6 168 L 306.6 220" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path data-edge-from="login" data-edge-to="recuperacion" data-edge-label="olvidó contraseña" data-edge-key="7" data-edge-id="login-recovery" data-composition-routing="workflow-v2-auto" data-edge-role="branch" data-composition-points="170,120;269.6,120" d="M 170 120 L 269.6 120" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
-        <path data-edge-from="mysql" data-edge-to="consulta" data-edge-label="página de 10" data-edge-key="8" data-edge-id="mysql-consulta" data-composition-routing="workflow-v2-auto" data-edge-role="return" data-composition-points="1122.6,498;1186.2,498;1186.2,246;1127.6,246" d="M 1122.6 498 L 1186.2 498 L 1186.2 246 L 1127.6 246" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path data-edge-from="validacion" data-edge-to="guardar" data-edge-label="permitido" data-edge-key="9" data-edge-id="validation-api" data-composition-routing="workflow-v2-auto" data-edge-role="main" data-composition-points="803,406;803,472" d="M 803 406 L 803 472" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path data-edge-from="validacion" data-edge-to="rechazo" data-edge-label="sin permiso o inválido" data-edge-key="10" data-edge-id="validation-reject" data-composition-routing="workflow-v2-auto" data-edge-role="error" data-composition-points="872,372;995.5999999999999,372" d="M 872 372 L 995.5999999999999 372" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
+        <path data-edge-from="address-ui" data-edge-to="catalog-api" data-edge-key="0" data-edge-id="address-catalog" data-edge-role="branch" data-composition-points="693.4,246;880,246;880,800;500,800;500,630;480.2,630" d="M 693.4 246 L 880 246 L 880 800 L 500 800 L 500 630 L 480.2 630" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="client-api" data-edge-to="client-data" data-edge-label="valida y persiste" data-edge-key="1" data-edge-id="api-client-data" data-edge-role="main" data-composition-points="628.4,530;628.4,700;690,700;690,756;704.4,756" d="M 628.4 530 L 628.4 700 L 690 700 L 690 756 L 704.4 756" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="client-api" data-edge-to="client-sections" data-edge-label="lista paginada y actualizada" data-edge-key="2" data-edge-id="api-sections" data-composition-routing="workflow-v2-auto" data-edge-role="main" data-composition-points="652.4,530;652.4,558;781.4,558;781.4,411" d="M 652.4 530 L 652.4 558 L 781.4 558 L 781.4 411" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="catalog-api" data-edge-to="client-data" data-edge-label="consulta local" data-edge-key="3" data-edge-id="catalog-data" data-edge-role="branch" data-composition-points="480.2,630;1017,630;1017,756;858.4,756" d="M 480.2 630 L 1017 630 L 1017 756 L 858.4 756" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="client-form" data-edge-to="address-ui" data-edge-label="CP o selección" data-edge-key="4" data-edge-id="form-address" data-composition-routing="workflow-v2-auto" data-edge-role="branch" data-composition-points="478.2,246;563.4,246" d="M 478.2 246 L 563.4 246" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="client-form" data-edge-to="client-api" data-edge-label="multipart REST" data-edge-key="5" data-edge-id="form-client-api" data-edge-role="main" data-composition-points="410.2,272;410.2,300;500,300;500,462;628.4,462;628.4,478" d="M 410.2 272 L 410.2 300 L 500 300 L 500 462 L 628.4 462 L 628.4 478" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="login" data-edge-to="permissions" data-edge-label="autentica" data-edge-key="6" data-edge-id="login-permissions" data-composition-routing="workflow-v2-auto" data-edge-role="main" data-composition-points="160,120;221.2,120" d="M 160 120 L 221.2 120" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
+        <path data-edge-from="module" data-edge-to="client-form" data-edge-label="registrar o editar" data-edge-key="7" data-edge-id="module-form" data-composition-routing="workflow-v2-auto" data-edge-role="main" data-composition-points="290.2,403;290.2,432;386.2,432;386.2,272" d="M 290.2 403 L 290.2 432 L 386.2 432 L 386.2 272" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="permissions" data-edge-to="module" data-edge-label="habilita según rol" data-edge-key="8" data-edge-id="permissions-module" data-composition-routing="workflow-v2-auto" data-edge-role="main" data-composition-points="290.2,154;290.2,170;20,170;20,377;217.7,377" d="M 290.2 154 L 290.2 170 L 20 170 L 20 377 L 217.7 377" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="vehicle-modal" data-edge-to="client-api" data-edge-label="VIN, placa y datos" data-edge-key="9" data-edge-id="vehicle-save" data-composition-routing="workflow-v2-auto" data-edge-role="branch" data-composition-points="555.9,377;539.9,377;539.9,426;652.4,426;652.4,478" d="M 555.9 377 L 539.9 377 L 539.9 426 L 652.4 426 L 652.4 478" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
 
         <!-- Nodes -->
-        <g id="node-login" data-node-id="login" data-node-label="Login" tabindex="0" role="button" aria-label="Focus Login, correo + contraseña, Usuario autenticado › Acceso" aria-pressed="false" data-node-kind="external" data-node-sublabel="correo + contraseña" data-node-context="Usuario autenticado › Acceso">
-          <title>Login · correo + contraseña · Usuario autenticado › Acceso</title>
-          <rect x="48" y="94" width="122" height="52" rx="6" class="c-mask"/>
-          <rect x="48" y="94" width="122" height="52" rx="6" class="c-external" stroke-width="1.5"/>
+        <g id="node-login" data-node-id="login" data-node-label="Inicio de sesión" tabindex="0" role="button" aria-label="Focus Inicio de sesión, credenciales, Acceso y autorización › Acceso" aria-pressed="false" data-node-kind="external" data-node-sublabel="credenciales" data-node-context="Acceso y autorización › Acceso">
+          <title>Inicio de sesión · credenciales · Acceso y autorización › Acceso</title>
+          <rect x="48" y="94" width="112" height="52" rx="6" class="c-mask"/>
+          <rect x="48" y="94" width="112" height="52" rx="6" class="c-external" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(54 100) scale(0.6875)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="109" y="115" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Login</text>
-          <text data-detail="context" x="109" y="132" class="t-muted" font-size="8" text-anchor="middle">correo + contraseña</text>
+          <text data-node-label="" data-detail-anchor="" x="104" y="126" class="t-primary" font-size="10.8" font-weight="600" text-anchor="middle">Inicio de sesión</text>
+          <text data-detail="context" x="104" y="140.9" class="t-muted" font-size="8" text-anchor="middle">credenciales</text>
         </g>
 
-        <g id="node-recuperacion" data-node-id="recuperacion" data-node-label="Recuperación" tabindex="0" role="button" aria-label="Focus Recuperación, respuesta no reveladora, Usuario autenticado › Acceso" aria-pressed="false" data-node-kind="external" data-node-sublabel="respuesta no reveladora" data-node-context="Usuario autenticado › Acceso">
-          <title>Recuperación · respuesta no reveladora · Usuario autenticado › Acceso</title>
-          <rect x="269.6" y="94" width="122" height="52" rx="6" class="c-mask"/>
-          <rect x="269.6" y="94" width="122" height="52" rx="6" class="c-external" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(275.6 100) scale(0.6875)">
-            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
-            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="330.6" y="115" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Recuperación</text>
-          <text data-detail="context" x="330.6" y="132" class="t-muted" font-size="8" text-anchor="middle">respuesta no reveladora</text>
-        </g>
-
-        <g id="node-transferir" data-node-id="transferir" data-node-label="Cambio / suspensión" tabindex="0" role="button" aria-label="Focus Cambio / suspensión, suspender: administrador, Usuario autenticado › Administración" aria-pressed="false" data-node-kind="external" data-node-sublabel="suspender: administrador" data-node-context="Usuario autenticado › Administración">
-          <title>Cambio / suspensión · suspender: administrador · Usuario autenticado › Administración</title>
-          <rect x="992.5999999999999" y="94" width="138" height="52" rx="6" class="c-mask"/>
-          <rect x="992.5999999999999" y="94" width="138" height="52" rx="6" class="c-external" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(998.5999999999999 100) scale(0.6875)">
-            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
-            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="1061.6" y="126.2" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Cambio / suspensión</text>
-          <text data-detail="context" x="1061.6" y="141.1" class="t-muted" font-size="8" text-anchor="middle">suspender: administrador</text>
-        </g>
-
-        <g id="node-dashboard" data-node-id="dashboard" data-node-label="Panel" tabindex="0" role="button" aria-label="Focus Panel, registro y consulta, Vue + Facades › Acceso" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="registro y consulta" data-node-context="Vue + Facades › Acceso">
-          <title>Panel · registro y consulta · Vue + Facades › Acceso</title>
-          <rect x="269.6" y="220" width="122" height="52" rx="6" class="c-mask"/>
-          <rect x="269.6" y="220" width="122" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(275.6 226) scale(0.6875)">
-            <rect x="2" y="3" width="12" height="10" rx="2"/>
-            <path d="M2 6.5h12"/>
-            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
-            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="330.6" y="241" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Panel</text>
-          <text data-detail="context" x="330.6" y="258" class="t-muted" font-size="8" text-anchor="middle">registro y consulta</text>
-        </g>
-
-        <g id="node-taller" data-node-id="taller" data-node-label="Taller" tabindex="0" role="button" aria-label="Focus Taller, alta: administrador, Vue + Facades › Registro" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="alta: administrador" data-node-context="Vue + Facades › Registro">
-          <title>Taller · alta: administrador · Vue + Facades › Registro</title>
-          <rect x="472" y="220" width="122" height="52" rx="6" class="c-mask"/>
-          <rect x="472" y="220" width="122" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(478 226) scale(0.6875)">
-            <rect x="2" y="3" width="12" height="10" rx="2"/>
-            <path d="M2 6.5h12"/>
-            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
-            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="533" y="241" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Taller</text>
-          <text data-detail="context" x="533" y="258" class="t-muted" font-size="8" text-anchor="middle">alta: administrador</text>
-        </g>
-
-        <g id="node-formulario" data-node-id="formulario" data-node-label="Cliente" tabindex="0" role="button" aria-label="Focus Cliente, datos, foto y dirección, Vue + Facades › Registro" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="datos, foto y dirección" data-node-context="Vue + Facades › Registro">
-          <title>Cliente · datos, foto y dirección · Vue + Facades › Registro</title>
-          <rect x="602" y="220" width="132" height="52" rx="6" class="c-mask"/>
-          <rect x="602" y="220" width="132" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(608 226) scale(0.6875)">
-            <rect x="2" y="3" width="12" height="10" rx="2"/>
-            <path d="M2 6.5h12"/>
-            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
-            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="668" y="241" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Cliente</text>
-          <text data-detail="context" x="668" y="258" class="t-muted" font-size="8" text-anchor="middle">datos, foto y dirección</text>
-        </g>
-
-        <g id="node-consulta" data-node-id="consulta" data-node-label="Clientes" tabindex="0" role="button" aria-label="Focus Clientes, página, edición y orden, Vue + Facades › Administración" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="página, edición y orden" data-node-context="Vue + Facades › Administración">
-          <title>Clientes · página, edición y orden · Vue + Facades › Administración</title>
-          <rect x="995.5999999999999" y="220" width="132" height="52" rx="6" class="c-mask"/>
-          <rect x="995.5999999999999" y="220" width="132" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(1001.5999999999999 226) scale(0.6875)">
-            <rect x="2" y="3" width="12" height="10" rx="2"/>
-            <path d="M2 6.5h12"/>
-            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
-            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="1061.6" y="241" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Clientes</text>
-          <text data-detail="context" x="1061.6" y="258" class="t-muted" font-size="8" text-anchor="middle">página, edición y orden</text>
-        </g>
-
-        <g id="node-validacion" data-node-id="validacion" data-node-label="Validar permiso" tabindex="0" role="button" aria-label="Focus Validar permiso, rol, formato y duplicado, Seguridad y reglas › Administración" aria-pressed="false" data-node-kind="security" data-node-sublabel="rol, formato y duplicado" data-node-tag="admin / secretaria" data-node-context="Seguridad y reglas › Administración">
-          <title>Validar permiso · rol, formato y duplicado · Seguridad y reglas › Administración · admin / secretaria</title>
-          <rect x="734" y="338" width="138" height="68" rx="6" class="c-mask"/>
-          <rect x="734" y="338" width="138" height="68" rx="6" class="c-security" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(740 344) scale(0.6875)">
+        <g id="node-permissions" data-node-id="permissions" data-node-label="Roles" tabindex="0" role="button" aria-label="Focus Roles, admin · secretaria · recepción, Acceso y autorización › Acceso" aria-pressed="false" data-node-kind="security" data-node-sublabel="admin · secretaria · recepción" data-node-tag="según rol" data-node-context="Acceso y autorización › Acceso">
+          <title>Roles · admin · secretaria · recepción · Acceso y autorización › Acceso · según rol</title>
+          <rect x="221.2" y="86" width="138" height="68" rx="6" class="c-mask"/>
+          <rect x="221.2" y="86" width="138" height="68" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(227.2 92) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="803" y="359" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Validar permiso</text>
-          <text data-detail="context" x="803" y="376" class="t-muted" font-size="8" text-anchor="middle">rol, formato y duplicado</text>
-        <text data-detail="fine" x="803" y="394" class="t-security" font-size="7" text-anchor="middle">admin / secretaria</text>
+          <text data-node-label="" data-detail-anchor="" x="290.2" y="107" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Roles</text>
+          <text data-detail="context" x="290.2" y="124" class="t-muted" font-size="7.2" text-anchor="middle">admin · secretaria · recepción</text>
+        <text data-detail="fine" x="290.2" y="142" class="t-security" font-size="7" text-anchor="middle">según rol</text>
         </g>
 
-        <g id="node-rechazo" data-node-id="rechazo" data-node-label="Rechazar" tabindex="0" role="button" aria-label="Focus Rechazar, 403, duplicado o inválido, Seguridad y reglas › Administración" aria-pressed="false" data-node-kind="security" data-node-sublabel="403, duplicado o inválido" data-node-context="Seguridad y reglas › Administración">
-          <title>Rechazar · 403, duplicado o inválido · Seguridad y reglas › Administración</title>
-          <rect x="995.5999999999999" y="346" width="132" height="52" rx="6" class="c-mask"/>
-          <rect x="995.5999999999999" y="346" width="132" height="52" rx="6" class="c-security" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(1001.5999999999999 352) scale(0.6875)">
-            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
-            <path d="m5.8 8 1.5 1.5 3-3"/>
+        <g id="node-client-form" data-node-id="client-form" data-node-label="Formulario" tabindex="0" role="button" aria-label="Focus Formulario, alta/edición · CURP, foto y taller, Frontend Vue · captura › Dirección sincronizada › Captura y validación" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="alta/edición · CURP, foto y taller" data-node-context="Frontend Vue · captura › Dirección sincronizada › Captura y validación">
+          <title>Formulario · alta/edición · CURP, foto y taller · Frontend Vue · captura › Dirección sincronizada › Captura y validación</title>
+          <rect x="342.2" y="220" width="136" height="52" rx="6" class="c-mask"/>
+          <rect x="342.2" y="220" width="136" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(348.2 226) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="1061.6" y="367" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Rechazar</text>
-          <text data-detail="context" x="1061.6" y="384" class="t-muted" font-size="8" text-anchor="middle">403, duplicado o inválido</text>
+          <text data-node-label="" data-detail-anchor="" x="410.2" y="241" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Formulario</text>
+          <text data-detail="context" x="410.2" y="258" class="t-muted" font-size="6.2" text-anchor="middle">alta/edición · CURP, foto y taller</text>
         </g>
 
-        <g id="node-catalogo" data-node-id="catalogo" data-node-label="Código postal" tabindex="0" role="button" aria-label="Focus Código postal, CP ⇄ dirección, Spring Boot, MySQL y catálogo postal › Registro" aria-pressed="false" data-node-kind="database" data-node-sublabel="CP ⇄ dirección" data-node-context="Spring Boot, MySQL y catálogo postal › Registro">
-          <title>Código postal · CP ⇄ dirección · Spring Boot, MySQL y catálogo postal › Registro</title>
-          <rect x="602" y="472" width="132" height="52" rx="6" class="c-mask"/>
-          <rect x="602" y="472" width="132" height="52" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(608 478) scale(0.6875)">
-            <ellipse cx="8" cy="4" rx="5" ry="2"/>
-            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+        <g id="node-address-ui" data-node-id="address-ui" data-node-label="Dirección" tabindex="0" role="button" aria-label="Focus Dirección, CP y selección manual, Frontend Vue · captura › Dirección sincronizada › Captura y validación" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="CP y selección manual" data-node-context="Frontend Vue · captura › Dirección sincronizada › Captura y validación">
+          <title>Dirección · CP y selección manual · Frontend Vue · captura › Dirección sincronizada › Captura y validación</title>
+          <rect x="563.4" y="220" width="130" height="52" rx="6" class="c-mask"/>
+          <rect x="563.4" y="220" width="130" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(569.4 226) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="668" y="493" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Código postal</text>
-          <text data-detail="context" x="668" y="510" class="t-muted" font-size="8" text-anchor="middle">CP ⇄ dirección</text>
+          <text data-node-label="" data-detail-anchor="" x="628.4" y="241" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Dirección</text>
+          <text data-detail="context" x="628.4" y="258" class="t-muted" font-size="8" text-anchor="middle">CP y selección manual</text>
         </g>
 
-        <g id="node-guardar" data-node-id="guardar" data-node-label="API REST" tabindex="0" role="button" aria-label="Focus API REST, Facade → Repository, Spring Boot, MySQL y catálogo postal › Administración" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Facade → Repository" data-node-context="Spring Boot, MySQL y catálogo postal › Administración">
-          <title>API REST · Facade → Repository · Spring Boot, MySQL y catálogo postal › Administración</title>
-          <rect x="742" y="472" width="122" height="52" rx="6" class="c-mask"/>
-          <rect x="742" y="472" width="122" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(748 478) scale(0.6875)">
+        <g id="node-module" data-node-id="module" data-node-label="Administrar clientes" tabindex="0" role="button" aria-label="Focus Administrar clientes, registro, consulta y acciones, Frontend Vue · administración › Administración y acciones › Acceso" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="registro, consulta y acciones" data-node-context="Frontend Vue · administración › Administración y acciones › Acceso">
+          <title>Administrar clientes · registro, consulta y acciones · Frontend Vue · administración › Administración y acciones › Acceso</title>
+          <rect x="217.7" y="351" width="145" height="52" rx="6" class="c-mask"/>
+          <rect x="217.7" y="351" width="145" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(223.7 357) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="290.2" y="383.2" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Administrar clientes</text>
+          <text data-detail="context" x="290.2" y="397.9" class="t-muted" font-size="7.8" text-anchor="middle">registro, consulta y acciones</text>
+        </g>
+
+        <g id="node-vehicle-modal" data-node-id="vehicle-modal" data-node-label="Asociar vehículo" tabindex="0" role="button" aria-label="Focus Asociar vehículo, activo · marca → modelo → versión, Frontend Vue · administración › Administración y acciones › Captura y validación" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="activo · marca → modelo → versión" data-node-context="Frontend Vue · administración › Administración y acciones › Captura y validación">
+          <title>Asociar vehículo · activo · marca → modelo → versión · Frontend Vue · administración › Administración y acciones › Captura y validación</title>
+          <rect x="555.9" y="351" width="145" height="52" rx="6" class="c-mask"/>
+          <rect x="555.9" y="351" width="145" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(561.9 357) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="628.4" y="372" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Asociar vehículo</text>
+          <text data-detail="context" x="628.4" y="389" class="t-muted" font-size="6.9" text-anchor="middle">activo · marca → modelo → versión</text>
+        </g>
+
+        <g id="node-client-sections" data-node-id="client-sections" data-node-label="Tres secciones" tabindex="0" role="button" aria-label="Focus Tres secciones, registrados, cancelados y eliminados, Frontend Vue · administración › Administración y acciones › Persistencia y consulta" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="registrados, cancelados y eliminados" data-node-tag="acciones y paginación" data-node-context="Frontend Vue · administración › Administración y acciones › Persistencia y consulta">
+          <title>Tres secciones · registrados, cancelados y eliminados · Frontend Vue · administración › Administración y acciones › Persistencia y consulta · acciones y paginación</title>
+          <rect x="708.9" y="343" width="145" height="68" rx="6" class="c-mask"/>
+          <rect x="708.9" y="343" width="145" height="68" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(714.9 349) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="781.4" y="364" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Tres secciones</text>
+          <text data-detail="context" x="781.4" y="381" class="t-muted" font-size="6.3" text-anchor="middle">registrados, cancelados y eliminados</text>
+        <text data-detail="fine" x="781.4" y="399" class="t-frontend" font-size="7" text-anchor="middle">acciones y paginación</text>
+        </g>
+
+        <g id="node-client-api" data-node-id="client-api" data-node-label="REST operativo" tabindex="0" role="button" aria-label="Focus REST operativo, clientes, vehículos y estatus, Backend Spring Boot · REST › Captura y validación" aria-pressed="false" data-node-kind="backend" data-node-sublabel="clientes, vehículos y estatus" data-node-context="Backend Spring Boot · REST › Captura y validación">
+          <title>REST operativo · clientes, vehículos y estatus · Backend Spring Boot · REST › Captura y validación</title>
+          <rect x="558.4" y="478" width="140" height="52" rx="6" class="c-mask"/>
+          <rect x="558.4" y="478" width="140" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(564.4 484) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="803" y="493" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">API REST</text>
-          <text data-detail="context" x="803" y="510" class="t-muted" font-size="8" text-anchor="middle">Facade → Repository</text>
+          <text data-node-label="" data-detail-anchor="" x="628.4" y="499" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">REST operativo</text>
+          <text data-detail="context" x="628.4" y="516" class="t-muted" font-size="7.5" text-anchor="middle">clientes, vehículos y estatus</text>
         </g>
 
-        <g id="node-mysql" data-node-id="mysql" data-node-label="MySQL" tabindex="0" role="button" aria-label="Focus MySQL, clientes por taller, Spring Boot, MySQL y catálogo postal › Administración" aria-pressed="false" data-node-kind="database" data-node-sublabel="clientes por taller" data-node-context="Spring Boot, MySQL y catálogo postal › Administración">
-          <title>MySQL · clientes por taller · Spring Boot, MySQL y catálogo postal › Administración</title>
-          <rect x="1000.5999999999999" y="472" width="122" height="52" rx="6" class="c-mask"/>
-          <rect x="1000.5999999999999" y="472" width="122" height="52" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(1006.5999999999999 478) scale(0.6875)">
+        <g id="node-catalog-api" data-node-id="catalog-api" data-node-label="Catálogos REST" tabindex="0" role="button" aria-label="Focus Catálogos REST, SEPOMEX y vehículo, Servicios de catálogo › Captura y validación" aria-pressed="false" data-node-kind="backend" data-node-sublabel="SEPOMEX y vehículo" data-node-context="Servicios de catálogo › Captura y validación">
+          <title>Catálogos REST · SEPOMEX y vehículo · Servicios de catálogo › Captura y validación</title>
+          <rect x="340.2" y="604" width="140" height="52" rx="6" class="c-mask"/>
+          <rect x="340.2" y="604" width="140" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(346.2 610) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="410.2" y="625" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Catálogos REST</text>
+          <text data-detail="context" x="410.2" y="642" class="t-muted" font-size="8" text-anchor="middle">SEPOMEX y vehículo</text>
+        </g>
+
+        <g id="node-client-data" data-node-id="client-data" data-node-label="MySQL · relaciones" tabindex="0" role="button" aria-label="Focus MySQL · relaciones, cliente↔taller/status · vehículo↔cliente, MySQL local › Persistencia y consulta" aria-pressed="false" data-node-kind="database" data-node-sublabel="cliente↔taller/status · vehículo↔cliente" data-node-context="MySQL local › Persistencia y consulta">
+          <title>MySQL · relaciones · cliente↔taller/status · vehículo↔cliente · MySQL local › Persistencia y consulta</title>
+          <rect x="704.4" y="730" width="154" height="52" rx="6" class="c-mask"/>
+          <rect x="704.4" y="730" width="154" height="52" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(710.4 736) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="1061.6" y="493" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">MySQL</text>
-          <text data-detail="context" x="1061.6" y="510" class="t-muted" font-size="8" text-anchor="middle">clientes por taller</text>
+          <text data-node-label="" data-detail-anchor="" x="782.8" y="751" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">MySQL · relaciones</text>
+          <text data-detail="context" x="781.4" y="768" class="t-muted" font-size="6" text-anchor="middle">cliente↔taller/status · vehículo↔cliente</text>
         </g>
 
         <!-- Edge labels -->
-        <g data-detail="context" data-edge-from="guardar" data-edge-to="mysql" data-edge-label="persistir" data-edge-key="0" data-edge-id="api-mysql">
-          <rect x="905.6999999999999" y="478" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="932.3" y="488" class="t-edge-default" font-size="8" text-anchor="middle">persistir</text>
+
+        <g data-detail="context" data-edge-from="client-api" data-edge-to="client-data" data-edge-label="valida y persiste" data-edge-key="1" data-edge-id="api-client-data">
+          <rect x="613.4000000000001" y="680" width="91.6" height="14" rx="3" class="c-mask"/>
+          <text x="659.2" y="690" class="t-edge-emphasis" font-size="8" text-anchor="middle">valida y persiste</text>
         </g>
-        <g data-detail="context" data-edge-from="consulta" data-edge-to="transferir" data-edge-label="editar / transferir / suspender" data-edge-key="1" data-edge-id="consulta-actions">
-          <rect x="982.1999999999999" y="173" width="158.79999999999998" height="14" rx="3" class="c-mask"/>
-          <text x="1061.6" y="183" class="t-edge-default" font-size="8" text-anchor="middle">editar / transferir / suspender</text>
+        <g data-detail="context" data-edge-from="client-api" data-edge-to="client-sections" data-edge-label="lista paginada y actualizada" data-edge-key="2" data-edge-id="api-sections">
+          <rect x="644.6999999999999" y="538" width="144.4" height="14" rx="3" class="c-mask"/>
+          <text x="716.9" y="548" class="t-edge-emphasis" font-size="8" text-anchor="middle">lista paginada y actualizada</text>
         </g>
-        <g data-detail="context" data-edge-from="dashboard" data-edge-to="formulario" data-edge-label="admin o secretaria" data-edge-key="2" data-edge-id="dashboard-form">
-          <rect x="451.1" y="184" width="96.39999999999999" height="14" rx="3" class="c-mask"/>
-          <text x="499.3" y="194" class="t-edge-emphasis" font-size="8" text-anchor="middle">admin o secretaria</text>
+        <g data-detail="context" data-edge-from="catalog-api" data-edge-to="client-data" data-edge-label="consulta local" data-edge-key="3" data-edge-id="catalog-data">
+          <rect x="710" y="610" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="748.6" y="620" class="t-edge-dashed" font-size="8" text-anchor="middle">consulta local</text>
         </g>
-        <g data-detail="context" data-edge-from="dashboard" data-edge-to="taller" data-edge-label="administrador" data-edge-key="3" data-edge-id="dashboard-taller">
-          <rect x="395.6" y="226" width="72.4" height="14" rx="3" class="c-mask"/>
-          <text x="431.8" y="236" class="t-edge-default" font-size="8" text-anchor="middle">administrador</text>
+        <g data-detail="context" data-edge-from="client-form" data-edge-to="address-ui" data-edge-label="CP o selección" data-edge-key="4" data-edge-id="form-address">
+          <rect x="482.19999999999993" y="226" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="520.8" y="236" class="t-edge-dashed" font-size="8" text-anchor="middle">CP o selección</text>
         </g>
-        <g data-detail="context" data-edge-from="formulario" data-edge-to="catalogo" data-edge-label="consulta automática" data-edge-key="4" data-edge-id="form-catalog">
-          <rect x="576.4" y="337" width="101.2" height="14" rx="3" class="c-mask"/>
-          <text x="627" y="347" class="t-edge-dashed" font-size="8" text-anchor="middle">consulta automática</text>
+        <g data-detail="context" data-edge-from="client-form" data-edge-to="client-api" data-edge-label="multipart REST" data-edge-key="5" data-edge-id="form-client-api">
+          <rect x="525.6" y="442" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="564.2" y="452" class="t-edge-emphasis" font-size="8" text-anchor="middle">multipart REST</text>
         </g>
-        <g data-detail="context" data-edge-from="formulario" data-edge-to="validacion" data-edge-label="multipart REST" data-edge-key="5" data-edge-id="form-validation">
-          <rect x="702.9" y="274" width="77.2" height="14" rx="3" class="c-mask"/>
-          <text x="741.5" y="284" class="t-edge-emphasis" font-size="8" text-anchor="middle">multipart REST</text>
+        <g data-detail="context" data-edge-from="login" data-edge-to="permissions" data-edge-label="autentica" data-edge-key="6" data-edge-id="login-permissions">
+          <rect x="164" y="100" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="190.6" y="110" class="t-edge-security" font-size="8" text-anchor="middle">autentica</text>
         </g>
-        <g data-detail="context" data-edge-from="login" data-edge-to="dashboard" data-edge-label="Basic Auth" data-edge-key="6" data-edge-id="login-dashboard">
-          <rect x="178.8" y="148" width="58" height="14" rx="3" class="c-mask"/>
-          <text x="207.8" y="158" class="t-edge-emphasis" font-size="8" text-anchor="middle">Basic Auth</text>
+        <g data-detail="context" data-edge-from="module" data-edge-to="client-form" data-edge-label="registrar o editar" data-edge-key="7" data-edge-id="module-form">
+          <rect x="290" y="412" width="96.39999999999999" height="14" rx="3" class="c-mask"/>
+          <text x="338.2" y="422" class="t-edge-emphasis" font-size="8" text-anchor="middle">registrar o editar</text>
         </g>
-        <g data-detail="context" data-edge-from="login" data-edge-to="recuperacion" data-edge-label="olvidó contraseña" data-edge-key="7" data-edge-id="login-recovery">
-          <rect x="174" y="100" width="91.6" height="14" rx="3" class="c-mask"/>
-          <text x="219.8" y="110" class="t-edge-dashed" font-size="8" text-anchor="middle">olvidó contraseña</text>
+        <g data-detail="context" data-edge-from="permissions" data-edge-to="module" data-edge-label="habilita según rol" data-edge-key="8" data-edge-id="permissions-module">
+          <rect x="106.9" y="150" width="96.39999999999999" height="14" rx="3" class="c-mask"/>
+          <text x="155.1" y="160" class="t-edge-emphasis" font-size="8" text-anchor="middle">habilita según rol</text>
         </g>
-        <g data-detail="context" data-edge-from="mysql" data-edge-to="consulta" data-edge-label="página de 10" data-edge-key="8" data-edge-id="mysql-consulta">
-          <rect x="1120.6000000000001" y="478" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="1154.4" y="488" class="t-edge-emphasis" font-size="8" text-anchor="middle">página de 10</text>
-        </g>
-        <g data-detail="context" data-edge-from="validacion" data-edge-to="guardar" data-edge-label="permitido" data-edge-key="9" data-edge-id="validation-api">
-          <rect x="776.4" y="429" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="803" y="439" class="t-edge-emphasis" font-size="8" text-anchor="middle">permitido</text>
-        </g>
-        <g data-detail="context" data-edge-from="validacion" data-edge-to="rechazo" data-edge-label="sin permiso o inválido" data-edge-key="10" data-edge-id="validation-reject">
-          <rect x="876" y="352" width="115.6" height="14" rx="3" class="c-mask"/>
-          <text x="933.8" y="362" class="t-edge-security" font-size="8" text-anchor="middle">sin permiso o inválido</text>
+        <g data-detail="context" data-edge-from="vehicle-modal" data-edge-to="client-api" data-edge-label="VIN, placa y datos" data-edge-key="9" data-edge-id="vehicle-save">
+          <rect x="547.9499999999999" y="406" width="96.39999999999999" height="14" rx="3" class="c-mask"/>
+          <text x="596.15" y="416" class="t-edge-emphasis" font-size="8" text-anchor="middle">VIN, placa y datos</text>
         </g>
 
         <!-- Legend -->
         <g data-legend="" data-legend-bridge="">
-          <text x="20" y="560" class="t-primary" font-size="12" font-weight="650">Legend</text>
-          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="User UI" data-legend-x="20" data-legend-baseline="580" data-legend-width="74">
-            <rect x="20" y="572" width="14" height="9" rx="2" class="c-frontend" stroke-width="1"/>
-            <text x="42" y="580" class="t-muted" font-size="7.5" font-weight="500">User UI</text>
+          <text x="20" y="818" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="User UI" data-legend-x="20" data-legend-baseline="838" data-legend-width="74">
+            <rect x="20" y="830" width="14" height="9" rx="2" class="c-frontend" stroke-width="1"/>
+            <text x="42" y="838" class="t-muted" font-size="7.5" font-weight="500">User UI</text>
           </g>
-          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Agent logic" data-legend-x="101" data-legend-baseline="580" data-legend-width="91">
-            <rect x="101" y="572" width="14" height="9" rx="2" class="c-backend" stroke-width="1"/>
-            <text x="123" y="580" class="t-muted" font-size="7.5" font-weight="500">Agent logic</text>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Agent logic" data-legend-x="101" data-legend-baseline="838" data-legend-width="91">
+            <rect x="101" y="830" width="14" height="9" rx="2" class="c-backend" stroke-width="1"/>
+            <text x="123" y="838" class="t-muted" font-size="7.5" font-weight="500">Agent logic</text>
           </g>
-          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Policy" data-legend-x="199" data-legend-baseline="580" data-legend-width="70">
-            <rect x="199" y="572" width="14" height="9" rx="2" class="c-security" stroke-width="1"/>
-            <text x="221" y="580" class="t-muted" font-size="7.5" font-weight="500">Policy</text>
+          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Policy" data-legend-x="199" data-legend-baseline="838" data-legend-width="70">
+            <rect x="199" y="830" width="14" height="9" rx="2" class="c-security" stroke-width="1"/>
+            <text x="221" y="838" class="t-muted" font-size="7.5" font-weight="500">Policy</text>
           </g>
-          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="Context / trace" data-legend-x="276" data-legend-baseline="580" data-legend-width="109">
-            <rect x="276" y="572" width="14" height="9" rx="2" class="c-database" stroke-width="1"/>
-            <text x="298" y="580" class="t-muted" font-size="7.5" font-weight="500">Context / trace</text>
+          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="Context / trace" data-legend-x="276" data-legend-baseline="838" data-legend-width="109">
+            <rect x="276" y="830" width="14" height="9" rx="2" class="c-database" stroke-width="1"/>
+            <text x="298" y="838" class="t-muted" font-size="7.5" font-weight="500">Context / trace</text>
           </g>
-          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External system" data-legend-x="392" data-legend-baseline="580" data-legend-width="109">
-            <rect x="392" y="572" width="14" height="9" rx="2" class="c-external" stroke-width="1"/>
-            <text x="414" y="580" class="t-muted" font-size="7.5" font-weight="500">External system</text>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External system" data-legend-x="392" data-legend-baseline="838" data-legend-width="109">
+            <rect x="392" y="830" width="14" height="9" rx="2" class="c-external" stroke-width="1"/>
+            <text x="414" y="838" class="t-muted" font-size="7.5" font-weight="500">External system</text>
           </g>
         </g>
       </svg>
@@ -5456,22 +5435,33 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <div class="card">
         <div class="card-header">
           <div class="card-dot cyan"></div>
-          <h3>Permisos</h3>
+          <h3>Registro y edición</h3>
         </div>
         <ul>
-          <li>Administrador: talleres, clientes, transferencia y suspensión.</li>
-          <li>Secretaria: clientes, edición y transferencia; sin alta de taller ni suspensión.</li>
+          <li>El formulario guarda fotografía, contacto, CURP, dirección y taller opcional.</li>
+          <li>El backend valida formato, edad, fotografía, duplicados y dirección contra SEPOMEX.</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <div class="card-dot rose"></div>
-          <h3>Controles</h3>
+          <div class="card-dot emerald"></div>
+          <h3>Estatus del cliente</h3>
         </div>
         <ul>
-          <li>Contraseñas BCrypt y recuperación con token temporal.</li>
-          <li>Foto JPG/PNG/WEBP hasta 15 MB; validaciones también en backend.</li>
+          <li>Activo y Suspendido aparecen en Clientes registrados.</li>
+          <li>Cancelar y Eliminar son cambios de status; Reactivar o Restaurar vuelve a Activo sin borrar el registro.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot amber"></div>
+          <h3>Consulta eficiente</h3>
+        </div>
+        <ul>
+          <li>Cada una de las tres secciones usa filtro por taller, orden ascendente/descendente y paginación del backend.</li>
+          <li>La interfaz refresca las tres listas tras guardar o cambiar el estatus.</li>
         </ul>
       </div>
     </div>
